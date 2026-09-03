@@ -1,8 +1,8 @@
 from components.base_component import BaseComponent
 
-from components.elements.button import Button
-from components.elements.input import Input
-from components.elements.text import Text
+from elements.button import Button
+from elements import Input
+from elements import Text
 
 
 class CreateCourseExerciseFormComponent(BaseComponent):
