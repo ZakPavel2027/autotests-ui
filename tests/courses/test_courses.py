@@ -45,3 +45,39 @@ class TestCourses:
             max_score="100",
             min_score="10"
         )
+
+    def test_edit_course(self, courses_list_page: CoursesListPage, create_course_page: CreateCoursePage):
+        create_course_page.visit('https://nikita-filonov.github.io/qa-automation-engineer-ui-course/#/courses/create')
+        create_course_page.create_course_form.fill(
+            title="Pytest UI",
+            estimated_time="3 weeks",
+            description="Pytest UI",
+            max_score="90",
+            min_score="9"
+        )
+        create_course_page.image_upload_widget.upload_preview_image(file='./testdata/files/image.png')
+        create_course_page.create_course_toolbar.click_create_course_button()
+        courses_list_page.course_view.check_visible(
+            index=0,
+            title="Pytest UI",
+            estimated_time="3 weeks",
+            max_score="90",
+            min_score="9"
+        )
+        courses_list_page.course_view.menu.click_edit(index=0)
+        create_course_page.create_course_form.fill(
+            title="NEW Pytest UI",
+            estimated_time="4 weeks",
+            description="NEW Pytest UI",
+            max_score="101",
+            min_score="11"
+        )
+        create_course_page.create_course_toolbar.click_create_course_button()
+        courses_list_page.course_view.check_visible(
+            index=0,
+            title="NEW Pytest UI",
+            estimated_time="4 weeks",
+            max_score="101",
+            min_score="11"
+        )
+
