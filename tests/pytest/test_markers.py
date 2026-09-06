@@ -5,8 +5,8 @@ import pytest
 def test_smoke_case():
     ...
 
-#@pytest.mark.regression
-def test_regression_case():
+# @pytest.mark.regression
+# def test_regression_case():
     ...
 
 
