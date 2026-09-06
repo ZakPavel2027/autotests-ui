@@ -3,6 +3,7 @@ from components.base_component import BaseComponent
 from elements.button import Button
 from elements.input import Input
 from elements.text import Text
+import allure
 
 
 class CreateCourseExerciseFormComponent(BaseComponent):
@@ -20,6 +21,7 @@ class CreateCourseExerciseFormComponent(BaseComponent):
             page, 'create-course-exercise-form-description-{index}-input', 'Description'
         )
 
+    @allure.step('Check visible create course exercise form at "{index}"')
     def click_delete_button(self, index: int):
         self.delete_exercise_button.click(index=index)
 
@@ -34,6 +36,7 @@ class CreateCourseExerciseFormComponent(BaseComponent):
         self.description_input.check_visible(index=index)
         self.description_input.check_have_value(description, index=index)
 
+    @allure.step('Fill visible create course exercise form at "{index}"')
     def fill_create_exercise_form(self, index: int, title: str, description: str):
 
         self.title_input.fill(title, index=index)
