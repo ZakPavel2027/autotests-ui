@@ -9,7 +9,6 @@ from tools.allure.stories import AllureStory
 from allure_commons.types import Severity
 
 
-
 @pytest.mark.courses
 @pytest.mark.regression
 @allure.tag(AllureTag.COURSES, AllureTag.REGRESSION)
@@ -60,6 +59,8 @@ class TestCourses:
             min_score="10"
         )
 
+    @allure.title("Edit course")
+    @allure.severity(Severity.CRITICAL)
     def test_edit_course(self, courses_list_page: CoursesListPage, create_course_page: CreateCoursePage):
         create_course_page.visit('https://nikita-filonov.github.io/qa-automation-engineer-ui-course/#/courses/create')
         create_course_page.create_course_form.fill(
@@ -94,4 +95,3 @@ class TestCourses:
             max_score="101",
             min_score="11"
         )
-
